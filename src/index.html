@@ -137,8 +137,37 @@
       <!-- Left Illustration / Placeholder -->
       <div class="md:w-1/2 flex items-center justify-center">
         <div
-          class="w-64 h-64 bg-gradient-to-tr from-yellow-300 to-amber-400 opacity-20 blur-2xl rounded-2xl"
-        ></div>
+          id="terminal-wrapper"
+          class="relative w-full flex justify-center items-center py-6"
+        >
+          <div
+            id="terminal-card"
+            class="w-full max-w-6xl h-[320px] bg-[#1e1e1e]/80 border border-[#333] backdrop-blur-md rounded-xl shadow-2xl transition-transform duration-150"
+          >
+            <!-- Header with traffic lights -->
+            <div
+              class="flex justify-between items-center px-4 py-2 border-b border-[#333]"
+            >
+              <div class="flex space-x-2">
+                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+              </div>
+              <span class="text-gray-400 text-xs">terminal — bash</span>
+            </div>
+
+            <!-- Console body -->
+            <div
+              class="h-full p-6 font-mono text-yellow-300 text-base overflow-auto"
+              style="background-color: #121212; border-top: 1px solid #333"
+            >
+              <div
+                id="console-output"
+                class="whitespace-pre-line leading-relaxed h-full w-full"
+              ></div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Right Content -->
