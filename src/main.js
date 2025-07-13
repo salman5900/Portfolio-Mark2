@@ -17,7 +17,8 @@ overlay.addEventListener("click", toggleMenu);
 function runTypingAnimation() {
   const lines = [
     "> Booting terminal...",
-    "> Started coding in 2023 🧠",
+    "> Started coding in 2022 🧠",
+    "> 2023: Build my my first ever app  🚀",
     "> 2024: Freelance projects & experiments 💼",
     "> 2025: Full-stack dev with AI integrations 🤖",
   ];
