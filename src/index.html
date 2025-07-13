@@ -11,6 +11,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
 
   <body class="bg-[#111111] text-white">
@@ -36,7 +41,7 @@
 
       <!-- Nav Links for Desktop -->
       <nav class="desktop-nav flex space-x-8 items-center">
-        <a href="#" class="hover:text-amber-400 transition">Something</a>
+        <a href="#about_me" class="hover:text-amber-400 transition">Me</a>
         <a href="#" class="hover:text-amber-400 transition">Something</a>
         <a href="#" class="hover:text-amber-400 transition">Something</a>
       </nav>
@@ -45,7 +50,7 @@
     <!-- Side menu for Mobile -->
     <div id="sideMenu" aria-hidden="true" role="menu">
       <nav>
-        <a href="#" role="menuitem">Something</a>
+        <a href="#about_me" role="menuitem">Me</a>
         <a href="#" role="menuitem">Something</a>
         <a href="#" role="menuitem">Something</a>
       </nav>
@@ -74,8 +79,8 @@
         </button>
       </div>
 
-      <!-- Right Side (Bento Grid) -->
-      <div class="md:w-1/2 grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-md">
+      <!-- Right Side (Extended Bento Grid with More Tiles) -->
+      <div class="md:w-1/2 grid grid-cols-2 grid-rows-4 gap-4 w-full max-w-md">
         <div
           class="bg-gradient-to-br from-amber-400 to-yellow-300 rounded-xl p-4 text-black font-bold flex items-center justify-center"
         >
@@ -106,8 +111,63 @@
         >
           🔥 Passion Projects
         </div>
+        <div
+          class="bg-[#1a1a1a] border border-yellow-300 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
+        >
+          🧠 Full Stack Dev
+        </div>
+        <div
+          class="bg-gradient-to-tr from-yellow-300 to-amber-400 rounded-xl p-4 text-black font-bold flex items-center justify-center"
+        >
+          🐍 Python Lover
+        </div>
+        <div
+          class="bg-[#2a2a2a] border border-yellow-500 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
+        >
+          📚 Always Learning
+        </div>
       </div>
     </main>
+    <hr id="about_me" class="border-none h-0 mt-6 md:mt-12" />
+
+    <!-- About Section -->
+    <section
+      class="px-6 md:px-20 pt-24 pb-45 flex flex-col md:flex-row items-center justify-between gap-12"
+    >
+      <!-- Left Illustration / Placeholder -->
+      <div class="md:w-1/2 flex items-center justify-center">
+        <div
+          class="w-64 h-64 bg-gradient-to-tr from-yellow-300 to-amber-400 opacity-20 blur-2xl rounded-2xl"
+        ></div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="md:w-1/2 space-y-6">
+        <h2 class="text-3xl md:text-4xl font-bold">Welcome to My World 👋</h2>
+        <p class="text-gray-400 text-lg leading-relaxed">
+          Hi, I'm Salman. I'm a full-time passionate developer dedicated to
+          sharpening my skills and helping people leave a strong digital
+          footprint in the world.
+        </p>
+
+        <p class="text-gray-400 text-lg leading-relaxed">
+          I'm currently pursuing a Computer Science degree at Kannur University.
+          Along the way, I’ve fallen in love with solving real problems through
+          code, crafting intuitive interfaces, and bringing digital ideas to
+          life.
+        </p>
+
+        <p class="text-gray-400 text-lg leading-relaxed">
+          I love coding. I love building. Whether it’s personal projects,
+          freelance work, or just experimenting with new tools — creating
+          digital products is where I feel at home.
+        </p>
+
+        <p class="text-amber-400 font-medium text-lg">
+          Let's connect and build something amazing together!
+        </p>
+      </div>
+    </section>
 
     <footer></footer>
 
