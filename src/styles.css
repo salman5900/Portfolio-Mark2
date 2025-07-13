@@ -118,3 +118,7 @@ body {
 #terminal-card {
   will-change: transform;
 }
+/* nav bar background */
+.bg-navbar {
+  background-color: rgba(17, 17, 17, 0.9); /* same as #111111e6 */
+}

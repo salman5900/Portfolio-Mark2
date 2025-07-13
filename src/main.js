@@ -133,3 +133,14 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe(consoleOutput);
+
+// dynamic navbar
+const navbar = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    navbar.classList.add("bg-navbar");
+  } else {
+    navbar.classList.remove("bg-navbar");
+  }
+});
