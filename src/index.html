@@ -23,10 +23,8 @@
     <header
       class="flex justify-between items-center px-6 md:px-20 py-5 relative z-60"
     >
-      <!-- Logo -->
       <img src="./logo.png" alt="Salman Logo" class="h-10 w-auto" />
 
-      <!-- Hamburger Button for Mobile -->
       <button
         id="hamburgerBtn"
         aria-label="Open menu"
@@ -39,7 +37,6 @@
         <span></span>
       </button>
 
-      <!-- Nav Links for Desktop -->
       <nav class="desktop-nav flex space-x-8 items-center">
         <a href="#about_me" class="hover:text-amber-400 transition">Me</a>
         <a href="#" class="hover:text-amber-400 transition">Something</a>
@@ -47,7 +44,6 @@
       </nav>
     </header>
 
-    <!-- Side menu for Mobile -->
     <div id="sideMenu" aria-hidden="true" role="menu">
       <nav>
         <a href="#about_me" role="menuitem">Me</a>
@@ -56,14 +52,12 @@
       </nav>
     </div>
 
-    <!-- Overlay -->
     <div id="overlay" tabindex="-1"></div>
 
     <!-- Main Hero Section -->
     <main
       class="px-6 md:px-20 py-24 flex flex-col md:flex-row items-center justify-between gap-12 animate-blur-fade-slidedown"
     >
-      <!-- Left Side -->
       <div class="md:w-1/2 space-y-6">
         <h1 class="text-4xl md:text-5xl font-bold leading-tight">
           Building Ideas Into Interfaces.
@@ -79,7 +73,6 @@
         </button>
       </div>
 
-      <!-- Right Side (Extended Bento Grid with More Tiles) -->
       <div class="md:w-1/2 grid grid-cols-2 grid-rows-4 gap-4 w-full max-w-md">
         <div
           class="bg-gradient-to-br from-amber-400 to-yellow-300 rounded-xl p-4 text-black font-bold flex items-center justify-center"
@@ -134,7 +127,6 @@
     <section
       class="px-6 md:px-20 pt-24 pb-45 flex flex-col md:flex-row items-center justify-between gap-12"
     >
-      <!-- Left Illustration / Placeholder -->
       <div class="md:w-1/2 flex items-center justify-center">
         <div
           id="terminal-wrapper"
@@ -142,9 +134,9 @@
         >
           <div
             id="terminal-card"
-            class="w-full max-w-6xl h-[320px] bg-[#1e1e1e]/80 border border-[#333] backdrop-blur-md rounded-xl shadow-2xl transition-transform duration-150"
+            class="w-full max-w-6xl min-h-[320px] bg-[#1e1e1e]/80 border-[1.5px] border-[#333] backdrop-blur-md rounded-xl shadow-2xl drop-shadow-[0_0_35px_rgba(251,191,36,0.2)] ring-1 ring-yellow-400/20 transition-transform duration-150"
           >
-            <!-- Header with traffic lights -->
+            <!-- Header -->
             <div
               class="flex justify-between items-center px-4 py-2 border-b border-[#333]"
             >
@@ -156,10 +148,9 @@
               <span class="text-gray-400 text-xs">terminal — bash</span>
             </div>
 
-            <!-- Console body -->
+            <!-- Terminal Body -->
             <div
-              class="h-full p-6 font-mono text-yellow-300 text-base overflow-auto"
-              style="background-color: #121212; border-top: 1px solid #333"
+              class="w-full h-[284px] p-6 font-mono text-yellow-300 text-base overflow-y-auto bg-[#121212] border-t border-[#333] rounded-b-xl"
             >
               <div
                 id="console-output"
@@ -170,7 +161,6 @@
         </div>
       </div>
 
-      <!-- Right Content -->
       <div class="md:w-1/2 space-y-6">
         <h2 class="text-3xl md:text-4xl font-bold">Welcome to My World 👋</h2>
         <p class="text-gray-400 text-lg leading-relaxed">
