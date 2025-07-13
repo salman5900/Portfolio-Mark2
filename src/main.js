@@ -13,8 +13,8 @@ function toggleMenu() {
 hamburgerBtn.addEventListener("click", toggleMenu);
 overlay.addEventListener("click", toggleMenu);
 
-// timeline console
-document.addEventListener("DOMContentLoaded", function () {
+// Typing animation logic
+function runTypingAnimation() {
   const lines = [
     "> Booting terminal...",
     "> Started coding in 2023 🧠",
@@ -45,12 +45,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Reset
+  output.innerHTML = "";
+  currentLine = "";
+  i = 0;
+  j = 0;
+
   typeLine();
-});
+}
 
 // Parallax tilt effect based on mouse position
 const card = document.getElementById("terminal-card");
 const wrapper = document.getElementById("terminal-wrapper");
+
+let currentX = 0;
+let currentY = 0;
+let currentScale = 1;
+let targetX = 0;
+let targetY = 0;
+let targetScale = 1;
+
+const easing = 0.35;
+
+function animate() {
+  currentX += (targetX - currentX) * easing;
+  currentY += (targetY - currentY) * easing;
+  currentScale += (targetScale - currentScale) * easing;
+
+  card.style.transform = `perspective(1000px) rotateX(${currentX}deg) rotateY(${currentY}deg) scale(${currentScale})`;
+  requestAnimationFrame(animate);
+}
+animate();
 
 wrapper.addEventListener("mousemove", (e) => {
   const rect = wrapper.getBoundingClientRect();
@@ -60,31 +85,50 @@ wrapper.addEventListener("mousemove", (e) => {
   const centerX = rect.width / 2;
   const centerY = rect.height / 2;
 
-  const rotateX = -((y - centerY) / centerY) * 8;
-  const rotateY = ((x - centerX) / centerX) * 8;
+  const rotateX = -((y - centerY) / centerY) * 6;
+  const rotateY = ((x - centerX) / centerX) * 6;
 
   const distance = Math.sqrt(
     Math.pow((x - centerX) / centerX, 2) + Math.pow((y - centerY) / centerY, 2)
   );
 
   const isNearCorner =
-    (x < 80 && y < 80) || // top-left
-    (x > rect.width - 80 && y < 80) || // top-right
-    (x < 80 && y > rect.height - 80) || // bottom-left
-    (x > rect.width - 80 && y > rect.height - 80); // bottom-right
+    (x < 80 && y < 80) ||
+    (x > rect.width - 80 && y < 80) ||
+    (x < 80 && y > rect.height - 80) ||
+    (x > rect.width - 80 && y > rect.height - 80);
 
-  if (isNearCorner) {
-    // Sweet parallax effect in corners
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  } else {
-    // Inward sink in center areas
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${
-      1 - distance * 0.02
-    })`;
-  }
+  targetX = rotateX;
+  targetY = rotateY;
+  targetScale = isNearCorner ? 1 : 1 - distance * 0.015;
 });
 
 wrapper.addEventListener("mouseleave", () => {
-  card.style.transform =
-    "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+  targetX = 0;
+  targetY = 0;
+  targetScale = 1;
 });
+
+// text animation
+const consoleOutput = document.getElementById("console-output");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        consoleOutput.classList.add("opacity-100", "translate-y-0");
+        consoleOutput.classList.remove("opacity-0", "translate-y-4");
+
+        runTypingAnimation(); // 🔥 Run animation when in view
+      } else {
+        consoleOutput.classList.remove("opacity-100", "translate-y-0");
+        consoleOutput.classList.add("opacity-0", "translate-y-4");
+      }
+    });
+  },
+  {
+    threshold: 0.5,
+  }
+);
+
+observer.observe(consoleOutput);

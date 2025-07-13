@@ -104,11 +104,17 @@ body {
 /* timeline console style */
 /* Cursor Blinker */
 .blinker {
-  animation: blink 1s step-start infinite;
+  animation: blink 1s step-end infinite;
 }
-
 @keyframes blink {
-  50% {
+  from,
+  to {
     opacity: 0;
   }
+  50% {
+    opacity: 1;
+  }
+}
+#terminal-card {
+  will-change: transform;
 }
