@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salman's Portfolio</title>
+    <link href="./output.css" rel="stylesheet" />
+    <!-- Google Font: Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body class="bg-[#111111] text-white">
+    <!-- Header/Navbar -->
+    <header
+      class="flex justify-between items-center px-6 md:px-20 py-5 relative z-60"
+    >
+      <!-- Logo -->
+      <img src="./logo.png" alt="Salman Logo" class="h-10 w-auto" />
+
+      <!-- Hamburger Button for Mobile -->
+      <button
+        id="hamburgerBtn"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="sideMenu"
+        type="button"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Nav Links for Desktop -->
+      <nav class="desktop-nav flex space-x-8 items-center">
+        <a href="#" class="hover:text-amber-400 transition">Something</a>
+        <a href="#" class="hover:text-amber-400 transition">Something</a>
+        <a href="#" class="hover:text-amber-400 transition">Something</a>
+      </nav>
+    </header>
+
+    <!-- Side menu for Mobile -->
+    <div id="sideMenu" aria-hidden="true" role="menu">
+      <nav>
+        <a href="#" role="menuitem">Something</a>
+        <a href="#" role="menuitem">Something</a>
+        <a href="#" role="menuitem">Something</a>
+      </nav>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" tabindex="-1"></div>
+
+    <!-- Main Hero Section -->
+    <main
+      class="px-6 md:px-20 py-24 flex flex-col md:flex-row items-center justify-between gap-12 animate-blur-fade-slidedown"
+    >
+      <!-- Left Side -->
+      <div class="md:w-1/2 space-y-6">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+          Building Ideas Into Interfaces.
+        </h1>
+        <p class="text-gray-400 text-lg">
+          A passionate developer crafting clean and creative solutions on the
+          web.
+        </p>
+        <button
+          class="bg-gradient-to-r from-amber-400 to-yellow-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-amber-400/40 active:scale-95 active:shadow-inner animate-button-glow"
+        >
+          Let's Connect
+        </button>
+      </div>
+
+      <!-- Right Side (Bento Grid) -->
+      <div class="md:w-1/2 grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-md">
+        <div
+          class="bg-gradient-to-br from-amber-400 to-yellow-300 rounded-xl p-4 text-black font-bold flex items-center justify-center"
+        >
+          &lt;/&gt; Code
+        </div>
+        <div
+          class="bg-[#1f1f1f] border border-amber-400 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
+        >
+          💻 Tech Stack
+        </div>
+        <div
+          class="col-span-2 bg-gradient-to-br from-yellow-300 to-amber-500 rounded-xl p-4 text-black font-bold flex items-center justify-center"
+        >
+          🌍 Web Projects
+        </div>
+        <div
+          class="bg-[#1f1f1f] border border-yellow-400 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
+        >
+          🎨 UI / UX
+        </div>
+        <div
+          class="bg-gradient-to-tr from-amber-400 to-yellow-300 rounded-xl p-4 text-black font-bold flex items-center justify-center"
+        >
+          📦 Freelance
+        </div>
+        <div
+          class="col-span-2 bg-[#222222] border border-amber-500 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
+        >
+          🔥 Passion Projects
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
