@@ -60,6 +60,7 @@
     --blur-sm: 8px;
     --blur-md: 12px;
     --blur-2xl: 40px;
+    --blur-3xl: 64px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -224,6 +225,15 @@
   .relative {
     position: relative;
   }
+  .-top-10 {
+    top: calc(var(--spacing) * -10);
+  }
+  .-top-24 {
+    top: calc(var(--spacing) * -24);
+  }
+  .-left-10 {
+    left: calc(var(--spacing) * -10);
+  }
   .z-0 {
     z-index: 0;
   }
@@ -299,6 +309,12 @@
   .h-64 {
     height: calc(var(--spacing) * 64);
   }
+  .h-72 {
+    height: calc(var(--spacing) * 72);
+  }
+  .h-96 {
+    height: calc(var(--spacing) * 96);
+  }
   .h-\[240px\] {
     height: 240px;
   }
@@ -346,6 +362,12 @@
   }
   .w-64 {
     width: calc(var(--spacing) * 64);
+  }
+  .w-72 {
+    width: calc(var(--spacing) * 72);
+  }
+  .w-96 {
+    width: calc(var(--spacing) * 96);
   }
   .w-auto {
     width: auto;
@@ -789,6 +811,9 @@
   .opacity-20 {
     opacity: 20%;
   }
+  .opacity-30 {
+    opacity: 30%;
+  }
   .opacity-100 {
     opacity: 100%;
   }
@@ -839,6 +864,10 @@
   }
   .blur-2xl {
     --tw-blur: blur(var(--blur-2xl));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .blur-3xl {
+    --tw-blur: blur(var(--blur-3xl));
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .drop-shadow-\[0_0_35px_rgba\(251\,191\,36\,0\.2\)\] {

@@ -55,24 +55,35 @@
     <div id="overlay" tabindex="-1"></div>
 
     <!-- Main Hero Section -->
+    <!-- Main Hero Section -->
     <main
       class="px-6 md:px-20 py-24 flex flex-col md:flex-row items-center justify-between gap-12 animate-blur-fade-slidedown"
     >
-      <div class="md:w-1/2 space-y-6">
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-          Building Ideas Into Interfaces.
-        </h1>
-        <p class="text-gray-400 text-lg">
-          A passionate developer crafting clean and creative solutions on the
-          web.
-        </p>
-        <button
-          class="bg-gradient-to-r from-amber-400 to-yellow-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-amber-400/40 active:scale-95 active:shadow-inner animate-button-glow"
-        >
-          Let's Connect
-        </button>
+      <!-- Left Side with Glow -->
+      <div class="md:w-1/2 relative">
+        <!-- Yellow blur glow blob -->
+        <div
+          class="absolute -top-24 -left-10 w-96 h-96 bg-yellow-400 opacity-30 blur-3xl rounded-full z-0"
+        ></div>
+
+        <!-- Hero Text -->
+        <div class="space-y-6 relative z-10">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+            Building Ideas Into Interfaces.
+          </h1>
+          <p class="text-gray-400 text-lg">
+            A passionate developer crafting clean and creative solutions on the
+            web.
+          </p>
+          <button
+            class="bg-gradient-to-r from-amber-400 to-yellow-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-amber-400/40 active:scale-95 active:shadow-inner animate-button-glow"
+          >
+            Let's Connect
+          </button>
+        </div>
       </div>
 
+      <!-- Right Side Grid -->
       <div class="md:w-1/2 grid grid-cols-2 grid-rows-4 gap-4 w-full max-w-md">
         <div
           class="bg-gradient-to-br from-amber-400 to-yellow-300 rounded-xl p-4 text-black font-bold flex items-center justify-center"
@@ -121,6 +132,7 @@
         </div>
       </div>
     </main>
+
     <hr id="about_me" class="border-none h-0 mt-6 md:mt-12" />
 
     <!-- About Section -->
