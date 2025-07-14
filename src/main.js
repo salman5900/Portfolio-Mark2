@@ -144,3 +144,23 @@ window.addEventListener("scroll", () => {
     navbar.classList.remove("bg-navbar");
   }
 });
+
+// animation for skills
+document.addEventListener("DOMContentLoaded", () => {
+  const tiles = document.querySelectorAll(".glass-tile");
+
+  const revealGroups = () => {
+    for (let i = 0; i < tiles.length; i += 3) {
+      const group = [tiles[i], tiles[i + 1], tiles[i + 2]].filter(Boolean);
+      const rects = group.map((tile) => tile.getBoundingClientRect());
+      const inView = rects.some((rect) => rect.top < window.innerHeight - 100);
+
+      group.forEach((tile) => {
+        tile.classList.toggle("group-visible", inView);
+      });
+    }
+  };
+
+  window.addEventListener("scroll", revealGroups);
+  revealGroups(); // run once on load
+});
