@@ -164,3 +164,177 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", revealGroups);
   revealGroups(); // run once on load
 });
+
+// side show
+let portfolioSliderCurrentIndex = 0;
+const portfolioSliderTotalSlides = 4;
+const portfolioSliderItems = document.querySelectorAll(".slider-item");
+const portfolioSliderDots = document.querySelectorAll(".dot");
+const portfolioSliderProgressBar = document.getElementById("progress-bar");
+const portfolioSliderWrapper = document.querySelector(".relative.max-w-6xl");
+
+// Auto-play variables
+let portfolioSliderAutoPlayTimer;
+let portfolioSliderAutoPlayRunning = false;
+let portfolioSliderUserInteracting = false;
+
+function updatePortfolioSlider() {
+  portfolioSliderItems.forEach((slide, index) => {
+    slide.style.transform = `translateX(${
+      (index - portfolioSliderCurrentIndex) * 100
+    }%)`;
+  });
+
+  // Update dots
+  portfolioSliderDots.forEach((dot, index) => {
+    if (index === portfolioSliderCurrentIndex) {
+      dot.classList.remove("bg-gray-600", "hover:bg-gray-500");
+      dot.classList.add("bg-amber-400", "scale-125");
+    } else {
+      dot.classList.remove("bg-amber-400", "scale-125");
+      dot.classList.add("bg-gray-600", "hover:bg-gray-500");
+    }
+  });
+
+  // Update progress bar
+  portfolioSliderProgressBar.style.width = `${
+    ((portfolioSliderCurrentIndex + 1) / portfolioSliderTotalSlides) * 100
+  }%`;
+}
+
+function nextPortfolioSlide() {
+  portfolioSliderCurrentIndex =
+    (portfolioSliderCurrentIndex + 1) % portfolioSliderTotalSlides;
+  updatePortfolioSlider();
+}
+
+function prevPortfolioSlide() {
+  portfolioSliderCurrentIndex =
+    (portfolioSliderCurrentIndex - 1 + portfolioSliderTotalSlides) %
+    portfolioSliderTotalSlides;
+  updatePortfolioSlider();
+}
+
+function goToPortfolioSlide(index) {
+  portfolioSliderCurrentIndex = index;
+  updatePortfolioSlider();
+}
+
+// Auto-play functions
+function startPortfolioSliderAutoPlay() {
+  if (!portfolioSliderUserInteracting && !portfolioSliderAutoPlayRunning) {
+    portfolioSliderAutoPlayTimer = setInterval(nextPortfolioSlide, 8000);
+    portfolioSliderAutoPlayRunning = true;
+  }
+}
+
+function stopPortfolioSliderAutoPlay() {
+  if (portfolioSliderAutoPlayTimer) {
+    clearInterval(portfolioSliderAutoPlayTimer);
+    portfolioSliderAutoPlayTimer = null;
+    portfolioSliderAutoPlayRunning = false;
+  }
+}
+
+function handlePortfolioSliderUserInteraction() {
+  portfolioSliderUserInteracting = true;
+  stopPortfolioSliderAutoPlay();
+
+  // Resume auto-play after 3 seconds of no interaction
+  setTimeout(() => {
+    portfolioSliderUserInteracting = false;
+    if (checkPortfolioSliderVisibility()) {
+      startPortfolioSliderAutoPlay();
+    }
+  }, 3000);
+}
+
+// Check if slider is visible in viewport
+function checkPortfolioSliderVisibility() {
+  const rect = portfolioSliderWrapper.getBoundingClientRect();
+  const windowHeight =
+    window.innerHeight || document.documentElement.clientHeight;
+
+  return (
+    rect.top < windowHeight &&
+    rect.bottom > 0 &&
+    rect.left < window.innerWidth &&
+    rect.right > 0
+  );
+}
+
+// Intersection Observer for visibility
+const portfolioSliderVisibilityObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Slider is visible
+        if (!portfolioSliderUserInteracting) {
+          startPortfolioSliderAutoPlay();
+        }
+      } else {
+        // Slider is not visible
+        stopPortfolioSliderAutoPlay();
+      }
+    });
+  },
+  {
+    threshold: 0.3, // Trigger when 30% of slider is visible
+  }
+);
+
+// Start observing the slider
+portfolioSliderVisibilityObserver.observe(portfolioSliderWrapper);
+
+// Event listeners with user interaction handling
+document.getElementById("nextBtn").addEventListener("click", () => {
+  handlePortfolioSliderUserInteraction();
+  nextPortfolioSlide();
+});
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+  handlePortfolioSliderUserInteraction();
+  prevPortfolioSlide();
+});
+
+portfolioSliderDots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    handlePortfolioSliderUserInteraction();
+    goToPortfolioSlide(index);
+  });
+});
+
+// Keyboard navigation without stopping auto-play
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") {
+    nextPortfolioSlide();
+  }
+  if (e.key === "ArrowLeft") {
+    prevPortfolioSlide();
+  }
+});
+
+// Pause auto-play on hover
+portfolioSliderWrapper.addEventListener("mouseenter", () => {
+  if (portfolioSliderAutoPlayRunning) {
+    stopPortfolioSliderAutoPlay();
+  }
+});
+
+portfolioSliderWrapper.addEventListener("mouseleave", () => {
+  if (!portfolioSliderUserInteracting && checkPortfolioSliderVisibility()) {
+    startPortfolioSliderAutoPlay();
+  }
+});
+
+// Handle page visibility changes
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    stopPortfolioSliderAutoPlay();
+  } else if (
+    !portfolioSliderUserInteracting &&
+    checkPortfolioSliderVisibility()
+  ) {
+    startPortfolioSliderAutoPlay();
+  }
+});
