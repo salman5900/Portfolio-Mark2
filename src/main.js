@@ -338,3 +338,81 @@ document.addEventListener("visibilitychange", () => {
     startPortfolioSliderAutoPlay();
   }
 });
+
+// test
+document.addEventListener("DOMContentLoaded", function () {
+  const boxes = document.querySelectorAll(".retro-box");
+  let currentPattern = Array(boxes.length).fill(false);
+
+  // Retro gaming patterns - different fill configurations
+  const patterns = [
+    [true, false, true, false, true, false, true, false, true],
+    [false, true, false, true, false, true, false, true, false],
+    [true, true, false, false, true, true, false, false, true],
+    [false, false, true, true, false, false, true, true, false],
+    [true, false, false, true, true, false, false, true, true],
+    [false, true, true, false, false, true, true, false, false],
+    [true, true, true, false, false, false, true, true, true],
+    [false, false, false, true, true, true, false, false, false],
+  ];
+
+  let patternIndex = 0;
+
+  function animateToPattern(targetPattern) {
+    boxes.forEach((box, index) => {
+      const delay = parseFloat(box.dataset.delay) * 1000;
+      const currentState = currentPattern[index];
+      const targetState = targetPattern[index];
+
+      setTimeout(() => {
+        if (currentState !== targetState) {
+          // Add transition class
+          box.classList.add(targetState ? "filling" : "unfilling");
+
+          // Add scanning effect
+          box.style.background = targetState
+            ? "linear-gradient(90deg, #1a1a1a 0%, #fbbf24 50%, #1a1a1a 100%)"
+            : "linear-gradient(90deg, #fbbf24 0%, #1a1a1a 50%, #fbbf24 100%)";
+
+          box.style.backgroundSize = "200% 100%";
+
+          // Complete the transition
+          setTimeout(() => {
+            box.classList.remove("filling", "unfilling");
+            if (targetState) {
+              box.classList.add("active");
+            } else {
+              box.classList.remove("active");
+            }
+            box.style.background = "";
+            box.style.backgroundSize = "";
+          }, 800);
+        }
+      }, delay);
+    });
+
+    currentPattern = [...targetPattern];
+  }
+
+  // Start the animation loop
+  function startRetroLoop() {
+    animateToPattern(patterns[patternIndex]);
+    patternIndex = (patternIndex + 1) % patterns.length;
+  }
+
+  // Initial animation
+  setTimeout(startRetroLoop, 500);
+
+  // Continue the loop
+  setInterval(startRetroLoop, 4000);
+
+  // Add some retro sound effects simulation with visual feedback
+  boxes.forEach((box) => {
+    box.addEventListener("click", function () {
+      this.style.transform = "scale(0.95)";
+      setTimeout(() => {
+        this.style.transform = "";
+      }, 150);
+    });
+  });
+});

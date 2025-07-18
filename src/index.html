@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <style>
       html {
@@ -73,7 +77,7 @@
 
         <!-- Hero Text -->
         <div class="space-y-6 relative z-10">
-          <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-white">
             Building Ideas Into Interfaces.
           </h1>
           <p class="text-gray-400 text-lg">
@@ -88,53 +92,20 @@
         </div>
       </div>
 
-      <!-- Right Side Grid -->
-      <div class="md:w-1/2 grid grid-cols-2 grid-rows-4 gap-4 w-full max-w-md">
-        <div
-          class="bg-gradient-to-br from-amber-400 to-yellow-300 rounded-xl p-4 text-black font-bold flex items-center justify-center"
-        >
-          &lt;/&gt; Code
-        </div>
-        <div
-          class="bg-[#1f1f1f] border border-amber-400 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
-        >
-          💻 Tech Stack
-        </div>
-        <div
-          class="col-span-2 bg-gradient-to-br from-yellow-300 to-amber-500 rounded-xl p-4 text-black font-bold flex items-center justify-center"
-        >
-          🌍 Web Projects
-        </div>
-        <div
-          class="bg-[#1f1f1f] border border-yellow-400 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
-        >
-          🎨 UI / UX
-        </div>
-        <div
-          class="bg-gradient-to-tr from-amber-400 to-yellow-300 rounded-xl p-4 text-black font-bold flex items-center justify-center"
-        >
-          📦 Freelance
-        </div>
-        <div
-          class="col-span-2 bg-[#222222] border border-amber-500 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
-        >
+      <!-- Right Side Grid with Retro Gaming Animation -->
+      <div class="md:w-1/2 grid grid-cols-2 grid-rows-5 gap-4 w-full max-w-md">
+        <div class="retro-box" data-delay="0">&lt;/&gt; Code</div>
+        <div class="retro-box" data-delay="0.2">💻 Tech Stack</div>
+        <div class="retro-box col-span-2" data-delay="0.4">🌍 Web Projects</div>
+        <div class="retro-box" data-delay="0.6">🎨 UI / UX</div>
+        <div class="retro-box" data-delay="0.8">📦 Freelance</div>
+        <div class="retro-box col-span-2" data-delay="1.0">
           🔥 Passion Projects
         </div>
-        <div
-          class="bg-[#1a1a1a] border border-yellow-300 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
-        >
-          🧠 Full Stack Dev
-        </div>
-        <div
-          class="bg-gradient-to-tr from-yellow-300 to-amber-400 rounded-xl p-4 text-black font-bold flex items-center justify-center"
-        >
-          🐍 Python Lover
-        </div>
-        <div
-          class="bg-[#2a2a2a] border border-yellow-500 rounded-xl p-4 text-white font-semibold flex items-center justify-center"
-        >
-          📚 Always Learning
-        </div>
+        <div class="retro-box" data-delay="1.2">🧠 Full Stack Dev</div>
+        <div class="retro-box" data-delay="1.4">🐍 Python Lover</div>
+        <div class="retro-box" data-delay="1.6">📚 Always Learning</div>
+        <div class="retro-box" data-delay="1.8">🧙‍♂️ Backend Wizard</div>
       </div>
     </main>
 
