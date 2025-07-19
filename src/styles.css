@@ -331,3 +331,186 @@ body {
 .animate-button-glow {
   animation: buttonGlow 2s ease-in-out infinite alternate;
 }
+
+/* last offer section */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+/* Orbit Animation */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+@keyframes orbitSmall {
+  0% {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(100px) rotate(360deg);
+  }
+}
+
+/* Pulse Animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Code Rain Animation */
+@keyframes codeRain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Glow Effect */
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.6),
+      0 0 60px rgba(251, 191, 36, 0.3);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+.floating:nth-child(2) {
+  animation-delay: -2s;
+}
+.floating:nth-child(3) {
+  animation-delay: -4s;
+}
+
+.orbit-element {
+  animation: orbit 20s linear infinite;
+}
+.orbit-small {
+  animation: orbitSmall 15s linear infinite reverse;
+}
+
+.pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+.code-rain {
+  animation: codeRain 3s linear infinite;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  color: rgba(251, 191, 36, 0.7);
+}
+
+.glow-box {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Service Card Hover Effects */
+.service-card {
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(51, 51, 51, 0.6);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(251, 191, 36, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(251, 191, 36, 0.2);
+}
+
+/* Interactive Elements */
+.interactive-element {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.interactive-element:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Geometric Shapes Animation */
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  33% {
+    transform: rotateX(120deg) rotateY(120deg) rotateZ(0deg);
+  }
+  66% {
+    transform: rotateX(240deg) rotateY(240deg) rotateZ(120deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.rotate-3d {
+  animation: rotate3d 8s ease-in-out infinite;
+}
+
+/* Text Typewriter Effect */
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    border-color: transparent;
+  }
+  51%,
+  100% {
+    border-color: #fbbf24;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid #fbbf24;
+  white-space: nowrap;
+  animation: typewriter 3s steps(30) infinite, blink 1s step-end infinite;
+}

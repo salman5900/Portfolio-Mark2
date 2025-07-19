@@ -416,3 +416,66 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// for cilent section
+document.querySelectorAll(".interactive-element").forEach((element) => {
+  element.addEventListener("mouseenter", function () {
+    this.style.transform = "scale(1.2)";
+    this.style.filter =
+      "brightness(1.5) drop-shadow(0 0 10px rgba(251, 191, 36, 0.8))";
+  });
+
+  element.addEventListener("mouseleave", function () {
+    this.style.transform = "";
+    this.style.filter = "";
+  });
+});
+
+// Restart typewriter animation
+setInterval(() => {
+  const typewriter = document.querySelector(".typewriter");
+  typewriter.style.animation = "none";
+  setTimeout(() => {
+    typewriter.style.animation =
+      "typewriter 3s steps(30) infinite, blink 1s step-end infinite";
+  }, 100);
+}, 6000);
+
+// Service cards hover effect enhancement
+document.querySelectorAll(".service-card").forEach((card) => {
+  card.addEventListener("mouseenter", function () {
+    this.querySelector("svg").style.transform = "rotate(360deg) scale(1.2)";
+    this.querySelector("svg").style.transition = "all 0.5s ease";
+  });
+
+  card.addEventListener("mouseleave", function () {
+    this.querySelector("svg").style.transform = "";
+  });
+});
+
+// Add random sparkle effects
+function createSparkle() {
+  const sparkle = document.createElement("div");
+  sparkle.className = "absolute w-1 h-1 bg-amber-400 rounded-full opacity-0";
+  sparkle.style.left = Math.random() * 100 + "%";
+  sparkle.style.top = Math.random() * 100 + "%";
+
+  document.querySelector("section").appendChild(sparkle);
+
+  sparkle
+    .animate(
+      [
+        { opacity: 0, transform: "scale(0)" },
+        { opacity: 1, transform: "scale(1)" },
+        { opacity: 0, transform: "scale(0)" },
+      ],
+      {
+        duration: 2000,
+        easing: "ease-out",
+      }
+    )
+    .addEventListener("finish", () => sparkle.remove());
+}
+
+// Create sparkles periodically
+setInterval(createSparkle, 3000);
