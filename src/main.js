@@ -479,3 +479,7 @@ function createSparkle() {
 
 // Create sparkles periodically
 setInterval(createSparkle, 3000);
+
+function showIssuePopup() {
+  alert("There is a small issue with the links. The dev is on it 🚧");
+}
